@@ -194,7 +194,7 @@ pub type ProgramClientResult<T> = Result<T, ProgramClientError>;
 #[async_trait]
 pub trait ProgramClient<ST>
 where
-    ST: SendTransaction + SimulateTransaction,
+    ST: SendTransaction + SimulateTransaction + Send,
 {
     async fn get_minimum_balance_for_rent_exemption(
         &self,

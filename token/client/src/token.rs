@@ -397,7 +397,7 @@ fn native_mint_decimals(program_id: &Pubkey) -> u8 {
 
 impl<T> Token<T>
 where
-    T: SendTransaction + SimulateTransaction,
+    T: SendTransaction + SimulateTransaction + Send,
 {
     pub fn new(
         client: Arc<dyn ProgramClient<T>>,
